@@ -102,7 +102,7 @@ def interest(principal, rate, periods):
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     import math
-    investment_value = math.floor(principal + principal*(rate*periods))
+    investment_value = principal + math.floor(principal*(rate*periods))
     return investment_value
 
 def body_mass_index(weight, height):
