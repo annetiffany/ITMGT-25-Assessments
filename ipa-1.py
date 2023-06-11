@@ -33,7 +33,8 @@ def savings(gross_pay, tax_rate, expenses):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    remaining_pay = gross_pay-round(gross_pay*tax_rate)-expenses
+    import math
+    remaining_pay = gross_pay-math.floor(gross_pay*tax_rate)-expenses
     return remaining_pay
 
 def material_waste(total_material, material_units, num_jobs, job_consumption):
@@ -100,7 +101,8 @@ def interest(principal, rate, periods):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    investment_value = round(principal + principal*(rate*periods))
+    import math
+    investment_value = math.floor(principal + principal*(rate*periods))
     return investment_value
 
 def body_mass_index(weight, height):
