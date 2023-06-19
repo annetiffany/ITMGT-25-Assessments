@@ -45,7 +45,7 @@ def shift_letter(letter, shift):
         if shifted < 26:
             return (alphabet [shifted])
         else:
-            return (alphabet [shifted - 26])
+            return (alphabet [shifted % 26])
 
 def caesar_cipher(message, shift):
     '''Caesar Cipher.
@@ -70,11 +70,14 @@ def caesar_cipher(message, shift):
     alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
     shifted_message = ""
     for letter in message:
-        shifted = alphabet.index (letter) + shift
-        if shifted < 26:
-            shifted_letter = alphabet [shifted]
+        if letter == " ":
+            shifted_letter = " "
         else:
-            shifted_letter = alphabet [shifted - 26]
+            shifted = alphabet.index (letter) + shift
+            if shifted < 26:
+                shifted_letter = alphabet [shifted]
+            else:
+                shifted_letter = alphabet [shifted % 26]
         shifted_message = shifted_message + shifted_letter
     return (shifted_message) 
 
@@ -150,13 +153,16 @@ def vigenere_cipher(message, key):
     alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
     shifted_message = ""
     for letter in message:
-        key_index_equivalent = message.find(letter) % len (key)
-        key_letter_equivalent = key [key_index_equivalent]
-        shifted = alphabet.index (letter) + alphabet.index (key_letter_equivalent)
-        if shifted < 26:
-            shifted_letter = alphabet [shifted]
+        if letter == " ":
+            shifted_letter = " "
         else:
-            shifted_letter = alphabet [shifted - 26]
+            key_index_equivalent = message.find(letter) % len (key)
+            key_letter_equivalent = key [key_index_equivalent]
+            shifted = alphabet.index (letter) + alphabet.index (key_letter_equivalent)
+            if shifted < 26:
+                shifted_letter = alphabet [shifted]
+            else:
+                shifted_letter = alphabet [shifted - 26]
         shifted_message = shifted_message + shifted_letter
     return (shifted_message)
 
