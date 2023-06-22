@@ -151,14 +151,21 @@ def vigenere_cipher(message, key):
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+    
+    expanded_key = ""
+    for i in range (0,len(message)):
+        key_index = i % len(key)
+        added_key = key [key_index]
+        expanded_key = expanded_key + added_key
+
     shifted_message = ""
-    for letter in message:
-        if letter == " ":
+    for i in range (0,len(message)):
+        message_index = message[i]
+        expanded_key_index = expanded_key[i]
+        if message_index == " ":
             shifted_letter = " "
         else:
-            key_index_equivalent = message.find(letter) % len (key)
-            key_letter_equivalent = key [key_index_equivalent]
-            shifted = alphabet.index (letter) + alphabet.index (key_letter_equivalent)
+            shifted = alphabet.index (message_index) + alphabet.index (expanded_key_index)
             if shifted < 26:
                 shifted_letter = alphabet [shifted]
             else:
