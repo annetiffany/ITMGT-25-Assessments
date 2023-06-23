@@ -145,8 +145,6 @@ def eta(first_stop, second_stop, route_map):
     for list in route_map:
         new_elements = [list[0]]
         new_list = new_list + new_elements
-    print (new_list)
-    
     
     start = new_list.index(first_stop)
     end = new_list.index(second_stop)
